@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 稳定入口与使用说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f3f5f7;
+            color: #2c3e50;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .page {
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* Hero 区 */
+        .hero {
+            background: #ffffff;
+            border: 1px solid #e1e6ed;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #1e2a3a;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.1rem;
+            color: #4b5e72;
+            max-width: 640px;
+            margin: 0 auto 1.8rem;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: #eef2f5;
+            padding: 0.4rem 1.4rem;
+            border-radius: 60px;
+            font-size: 0.9rem;
+            color: #2b4a5f;
+            border: 1px solid #d5dee6;
+        }
+
+        /* 通用卡片 */
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #dee4ec;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 1.8rem 2rem;
+            flex: 1 1 280px;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.04);
+        }
+
+        .card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: #1e2a3a;
+            border-left: 3px solid #7c9ab3;
+            padding-left: 0.75rem;
+        }
+
+        .card p, .card li {
+            font-size: 0.95rem;
+            color: #3b4c5e;
+        }
+
+        .card ul {
+            list-style: none;
+            margin-top: 0.6rem;
+        }
+
+        .card ul li {
+            padding: 0.3rem 0 0.3rem 1.2rem;
+            position: relative;
+        }
+
+        .card ul li::before {
+            content: "·";
+            position: absolute;
+            left: 0;
+            color: #6f8da8;
+            font-weight: bold;
+        }
+
+        /* 说明区 */
+        .explain-card {
+            background: #ffffff;
+            border: 1px solid #dee4ec;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2rem 2.2rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .explain-card h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #1e2a3a;
+            border-left: 3px solid #7c9ab3;
+            padding-left: 0.75rem;
+        }
+
+        .explain-card p {
+            margin-bottom: 0.9rem;
+        }
+
+        .explain-card a {
+            color: #1a5d85;
+            text-decoration: none;
+            border-bottom: 1px dotted #8eacc4;
+        }
+
+        .explain-card a:hover {
+            border-bottom: 1px solid #1a5d85;
+        }
+
+        /* FAQ 摘要 */
+        .faq-block {
+            background: #ffffff;
+            border: 1px solid #dee4ec;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            padding: 2rem 2rem 1.5rem;
+            margin-bottom: 2.8rem;
+        }
+
+        .faq-block h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.4rem;
+            color: #1e2a3a;
+            border-left: 3px solid #7c9ab3;
+            padding-left: 0.75rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.3rem;
+        }
+
+        .faq-item strong {
+            display: block;
+            font-weight: 600;
+            color: #203544;
+            margin-bottom: 0.2rem;
+            font-size: 0.98rem;
+        }
+
+        .faq-item p {
+            font-size: 0.92rem;
+            color: #415468;
+            margin-left: 0.2rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            background: #ffffff;
+            border: 1px solid #dee4ec;
+            border-radius: 20px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+            padding: 1.6rem 2rem;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #405569;
+        }
+
+        .footer-links a {
+            color: #1a5d85;
+            text-decoration: none;
+            border-bottom: 1px dotted #8eacc4;
+        }
+
+        .footer-links a:hover {
+            border-bottom: 1px solid #1a5d85;
+        }
+
+        .footer-links .sep {
+            margin: 0 0.8rem;
+            color: #b6c7d6;
+        }
+
+        /* 响应式 */
+        @media (max-width: 640px) {
+            body {
+                padding: 1.2rem 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .card-grid {
+                flex-direction: column;
+            }
+
+            .card, .explain-card, .faq-block, .footer-links {
+                padding-left: 1.2rem;
+                padding-right: 1.2rem;
+            }
+
+            .faq-item strong {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+
+        <!-- hero 区 -->
+        <section class="hero">
+            <h1>爱游戏 · 稳定访问入口</h1>
+            <p class="subhead">
+                一个专注于提供清晰指引与页面说明的轻量级门户。<br>
+                无需复杂跳转，直达你需要了解的内容。
+            </p>
+            <span class="tagline">入口简洁 · 信息明了</span>
+        </section>
+
+        <!-- 优势区 -->
+        <div class="card-grid">
+            <div class="card">
+                <h2>一致的使用路径</h2>
+                <p>页面结构长期保持稳定，不随意变更布局。每次访问都能按熟悉的顺序找到说明、导航与常见问题，减少重新适应的成本。</p>
+            </div>
+            <div class="card">
+                <h2>克制的信息陈列</h2>
+                <p>不使用弹窗、浮层或强制跳转。所有内容都以平实的文字和分区卡片呈现，你可以按自己的节奏阅读。</p>
+            </div>
+            <div class="card">
+                <h2>轻量的页面结构</h2>
+                <p>没有多余的跟踪脚本或复杂动效。加载快、响应及时，在不同设备和网络环境下都能保持基本的可用性。</p>
+            </div>
+        </div>
+
+        <!-- 说明区：稳定入口与页面说明 -->
+        <section class="explain-card">
+            <h2>关于入口与页面说明</h2>
+            <p>
+                本页面所对应的主站为 <a href="https://app-portal-i-game.com.cn">爱游戏</a>，一个以内容介绍与入口整合为目的的站点。
+                我们有意将页面设计成「可阅读的说明书」而非「强引导的落地页」——没有紧迫的按钮催促，也没有夸大的价值声明。
+            </p>
+            <p>
+                每一个区块（hero、优势、说明、FAQ 摘要）都承担独立的说明功能：
+                如果你希望快速了解站点的定位，hero 区提供了概括；如果关心具体使用场景，优势卡和 FAQ 可以补充细节。
+                同时，所有链接均以自然句子的方式嵌入，例如你可以直接通过句中的 <a href="https://app-portal-i-game.com.cn">爱游戏</a> 了解更详细的信息，
+                而无需被迫点击任何诱导式按钮。
+            </p>
+            <p>
+                我们推荐使用桌面浏览器或移动端默认浏览器访问，以获得最一致的排版效果。
+                页面本身不依赖第三方资源，因此即使处于离线环境（本地打开时），样式和结构依然完整。
+            </p>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <section class="faq-block">
+            <h2>FAQ 摘要</h2>
+            <div class="faq-item">
+                <strong>这个页面和主站是什么关系？</strong>
+                <p>它是主站 <a href="https://app-portal-i-game.com.cn">爱游戏</a> 的介绍页 / 落地页，用于说明站点的定位、使用方式和常见疑问。内容和主站保持一致的信息基调。</p>
+            </div>
+            <div class="faq-item">
+                <strong>页面内容会频繁变化吗？</strong>
+                <p>不会。结构保持稳定，仅在必要时更新说明细节或 FAQ 条目。你每次看到的内容主体都是相同的。</p>
+            </div>
+            <div class="faq-item">
+                <strong>是否有隐藏页面或跳转？</strong>
+                <p>没有。所有链接均直接可见，指向明确。本页面仅包含一个指向主站的超链接（已嵌入在说明文字中），不包含任何重定向或中间页。</p>
+            </div>
+        </section>
+
+        <!-- 底部链接 -->
+        <div class="footer-links">
+            <span>主站点：</span>
+            <a href="https://app-portal-i-game.com.cn">爱游戏</a>
+            <span class="sep">·</span>
+            <span>页面说明：落地式介绍 · 稳定入口</span>
+            <span class="sep">·</span>
+            <span>内容版本：2025-06</span>
+        </div>
+
+    </div>
+</body>
+</html>
