@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>极速赛车 · 知识库索引</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f7f5;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      line-height: 1.7;
+      color: #1f1f1f;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 3.2rem 1.2rem 4rem;
+    }
+    .page {
+      max-width: 740px;
+      width: 100%;
+    }
+
+    /* 标题层级 */
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+      color: #0b0b0b;
+      line-height: 1.2;
+    }
+    .subhead {
+      font-size: 1rem;
+      color: #6b6b69;
+      border-bottom: 1px solid #dcdcd8;
+      padding-bottom: 1.8rem;
+      margin-bottom: 2.4rem;
+    }
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-top: 2.8rem;
+      margin-bottom: 1.2rem;
+      color: #1f1f1f;
+      letter-spacing: -0.01em;
+    }
+    h3 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      margin-top: 1.6rem;
+      margin-bottom: 0.6rem;
+      color: #2a2a28;
+    }
+
+    /* 卡片网格 —— 目录感布局 */
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin: 1.8rem 0 2rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 1.2rem 1.4rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+      transition: box-shadow 0.15s ease, transform 0.1s ease;
+      border: 1px solid #eaeae6;
+    }
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04), 0 0 0 1px #d4d4d0;
+      transform: translateY(-1px);
+    }
+    .card h3 {
+      font-weight: 490;
+      font-size: 1rem;
+      margin: 0 0 0.3rem;
+      color: #1f1f1f;
+    }
+    .card p {
+      font-size: 0.9rem;
+      color: #555551;
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    /* 提示区 / 信息区 */
+    .notice-box {
+      background: #f0efe9;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.2rem 0 2rem;
+      border-left: 4px solid #b8b4a8;
+    }
+    .notice-box p {
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      color: #2d2d2b;
+    }
+    .notice-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .related-box {
+      background: #ffffff;
+      border: 1px solid #e3e3de;
+      border-radius: 18px;
+      padding: 1.6rem 1.8rem;
+      margin: 2.2rem 0 2rem;
+    }
+    .related-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0.6rem 0 0;
+    }
+    .related-box li {
+      padding: 0.45rem 0;
+      font-size: 0.95rem;
+      border-bottom: 1px solid #efefe9;
+      display: flex;
+      align-items: baseline;
+    }
+    .related-box li:last-child {
+      border-bottom: none;
+    }
+    .related-box li::before {
+      content: "·";
+      color: #9b9b93;
+      margin-right: 0.7rem;
+      font-weight: 700;
+    }
+
+    /* 段落及正文 */
+    p {
+      font-size: 1rem;
+      margin-bottom: 1.1rem;
+      color: #2a2a28;
+    }
+    a {
+      color: #1f4f7a;
+      text-decoration: none;
+      border-bottom: 1px solid #cbd8e3;
+      transition: border-color 0.15s, color 0.1s;
+    }
+    a:hover {
+      color: #0b3457;
+      border-bottom-color: #0b3457;
+    }
+    .hero-link-sentence {
+      font-size: 1.05rem;
+      background: #f3f2ef;
+      padding: 0.2rem 0.6rem 0.1rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin: 0.2rem 0;
+    }
+    .hero-link-sentence a {
+      border-bottom: none;
+    }
+
+    .faq-item {
+      margin: 1.2rem 0;
+    }
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 0.2rem;
+      color: #1f1f1f;
+    }
+    .faq-item p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #4a4a46;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid #dbdbd5;
+      margin: 2.4rem 0 1.8rem;
+    }
+
+    /* 响应式微调 */
+    @media (max-width: 600px) {
+      body { padding: 2rem 1rem 3rem; }
+      h1 { font-size: 1.9rem; }
+      .card-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+      .notice-box, .related-box { padding: 1.2rem 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <h1>极速赛车 · 知识库</h1>
+  <div class="subhead">日常查询 · 对照 · 延伸阅读</div>
+
+  <!-- 嵌入链接的句子 —— 自然，不包含“进入/点击”等词 -->
+  <p style="font-size:1.05rem; margin-bottom:1.8rem;">
+    无论是刚开始了解还是已有经验，你都可以在 
+    <a href="https://portal-jisusaiche.com" style="font-weight:500;">极速赛车</a> 
+    找到关于赛车规则、赛事百科和术语对照的基础信息。下面整理了最常见的几类查询场景。
+  </p>
+
+  <!-- 卡片网格 —— 目录感布局 -->
+  <h2>📋 日常查询目录</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>参数对照</h3>
+      <p>引擎排量、轮胎规格、空气套件——快速对照不同组别数据。</p>
+    </div>
+    <div class="card">
+      <h3>赛事日历</h3>
+      <p>全年主要赛事时间、场地及直播平台索引。</p>
+    </div>
+    <div class="card">
+      <h3>术语表</h3>
+      <p>从“转向过度”到“窗口期”，常见赛车用语释义。</p>
+    </div>
+    <div class="card">
+      <h3>规则简册</h3>
+      <p>旗语、处罚类型、安全车规则等精简说明。</p>
+    </div>
+    <div class="card">
+      <h3>车队档案</h3>
+      <p>主要车队历史、技术特点及车手阵容。</p>
+    </div>
+    <div class="card">
+      <h3>赛道百科</h3>
+      <p>经典赛道长度、弯道数量、最快圈速记录。</p>
+    </div>
+  </div>
+
+  <!-- 说明区 -->
+  <h2>📖 说明区</h2>
+  <p>本知识库面向日常查询和对照需求，不追求深度技术分析，而是帮助快速定位信息。内容以公开赛事资料和通用规则为基础，适合赛事观众、入门车迷以及偶尔需要查阅相关背景的读者。每一部分都保持独立，方便按需翻阅，无需从头读到尾。</p>
+  <p>如果你对某个条目有更具体的疑问，可以结合页面内的延伸阅读区找到更多线索。作为起点，<a href="https://portal-jisusaiche.com">极速赛车</a> 页面整合了导航入口和最新内容索引，便于直接跳转到对应模块。</p>
+
+  <!-- 提示区 -->
+  <div class="notice-box">
+    <p><strong>💡 提示</strong></p>
+    <p>· 参数对照表中的数据多为赛季平均值，具体比赛日可能因技术指令微调。</p>
+    <p>· 赛事日历建议以官方公布为准，部分邀请赛或地方系列赛未完全收录。</p>
+    <p>· 术语表侧重常见词条，冷僻或区域化用语会逐步补充。</p>
+  </div>
+
+  <!-- 相关信息区 -->
+  <div class="related-box">
+    <h3 style="margin-top:0;">🔗 相关信息</h3>
+    <ul>
+      <li>赛车执照分级与申请条件（国内赛事体系）</li>
+      <li>燃油与轮胎供应商技术规格公开摘要</li>
+      <li>历年赛道事故报告及安全改进汇总</li>
+      <li>青少年卡丁车到方程式的发展路径</li>
+      <li>混合动力系统在耐力赛中的演变</li>
+    </ul>
+  </div>
+
+  <!-- FAQ 摘要 (不是完整FAQ, 只做内容层次) -->
+  <h2>❓ 常见查询简要</h2>
+  <div class="faq-item">
+    <strong>「极速赛车」和普通公路车的主要区别？</strong>
+    <p>核心在于车架、动力单元、空气动力学和轮胎工作温度。赛车为赛道极限设计，保养周期和操作方式完全不同。日常查询可对照参数卡片快速区分。</p>
+  </div>
+  <div class="faq-item">
+    <strong>哪里能找到完整赛事规则原文？</strong>
+    <p>国际汽联（FIA）官网提供运动规则与技术规则全文。本知识库摘录常用部分，详细条文建议查阅原版文件。你也可以通过 <a href="https://portal-jisusaiche.com">极速赛车</a> 获取翻译摘要和解读链接。</p>
+  </div>
+  <div class="faq-item">
+    <strong>数据更新频率如何？</strong>
+    <p>参数对照和赛事日历每个赛季初集中更新，赛季中根据重大规则变化或新车发布做补充。延伸阅读话题不定期增加。</p>
+  </div>
+
+  <hr>
+  <p style="font-size:0.9rem; color:#7a7a74; text-align:center;">
+    基于公开资料整理 · 仅供参考 · 版本 2025.04
+  </p>
+
+</div>
+</body>
+</html>
